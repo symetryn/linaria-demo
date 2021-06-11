@@ -1,0 +1,13 @@
+{
+  "name": "consumer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next -p $CONSUMER_PORT",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@project/shared": "^0.1.0"
+  }
+}

@@ -1,0 +1,7 @@
+.git
+packages
+**/node_modules/**
+**/.*
+README.md
+lerna.json
+tsconfig.json
