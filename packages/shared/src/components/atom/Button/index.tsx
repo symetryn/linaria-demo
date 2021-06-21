@@ -1,12 +1,12 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
-import { theme } from '../../../theme';
-import { Button } from 'antd';
+import { ReactNode } from "react";
+import styled from "styled-components";
+import { theme } from "../../../theme";
+import { Button } from "antd";
 
-type ButtonType = 'primary' | 'link';
+type ButtonType = "primary" | "link";
 export interface ButtonProps {
   children?: React.ReactNode;
-  htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: "button" | "submit" | "reset";
   type?: ButtonType;
   width?: string;
   block?: boolean;
@@ -61,7 +61,7 @@ const StyledButton = styled(Button)`
   border-color: ${theme.blue2};
 
   border-radius: ${({ borderradius, noradius }: ButtonProps) => {
-    return noradius ? 'none' : borderradius ? borderradius : '100px';
+    return noradius ? "none" : borderradius ? borderradius : "100px";
   }};
   margin: ${({ margin }: ButtonProps) => {
     return margin && margin;
@@ -71,10 +71,10 @@ const StyledButton = styled(Button)`
       return `${padding} !important`;
     }
     switch (type) {
-      case 'primary':
-        return '0px 36px 0px 37px';
+      case "primary":
+        return "0px 36px 0px 37px";
       default:
-        return '0px 36px 0px 37px';
+        return "0px 36px 0px 37px";
     }
   }};
 
@@ -89,7 +89,7 @@ const StyledButton = styled(Button)`
     return fontSize && fontSize;
   }};
   font-weight: ${({ bold }: ButtonProps) => {
-    return bold && 'bold';
+    return bold && "bold";
   }};
   min-width: ${({ minwidth }: ButtonProps) => {
     return minwidth && `${minwidth}px`;

@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import { Button } from '@project/shared';
-import About from '../assets/about2.png';
-import { theme } from '@project/shared/src/theme';
+import Image from "next/image";
+import { Button } from "@project/shared";
+import About from "../assets/about2.png";
+import { theme } from "@project/shared/src/theme";
 
 export default function Home() {
   return (

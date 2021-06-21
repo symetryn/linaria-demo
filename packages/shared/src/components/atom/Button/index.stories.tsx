@@ -1,29 +1,29 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import { ButtonComponent } from '../Button';
+import React from "react";
+import { action } from "@storybook/addon-actions";
+import { ButtonComponent } from "../Button";
 
 export default {
-  title: 'Components/Atoms',
+  title: "Components/Atoms",
   component: ButtonComponent,
   parameters: {
     docs: {
       description: {
-        component: 'A simple button component',
+        component: "A simple button component",
       },
     },
   },
   args: {
-    type: 'primary',
+    type: "primary",
   },
   argTypes: {
     color: {
-      description: 'Color of the text',
-      control: 'color',
+      description: "Color of the text",
+      control: "color",
     },
   },
 };
 const Template = (args) => (
-  <ButtonComponent onClick={action('onClickAction')} {...args}>
+  <ButtonComponent onClick={action("onClickAction")} {...args}>
     Hello
   </ButtonComponent>
 );
