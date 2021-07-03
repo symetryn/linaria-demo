@@ -1,6 +1,13 @@
 import { useForm } from "react-hook-form";
-import { Input } from "@project/shared";
-import { Button } from "antd";
+import { styled } from "linaria/react";
+import { Button as AntButton } from "antd";
+
+import { Input, Button } from "@project/shared";
+const Comp = styled(AntButton)`
+  height: 100px;
+  width: 100px;
+  background-color: black;
+`;
 
 export default function Login() {
   const { handleSubmit, control } = useForm({ mode: "onBlur" });
@@ -10,6 +17,7 @@ export default function Login() {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <Comp>test</Comp>
       <Input
         control={control}
         name="username"
@@ -26,7 +34,9 @@ export default function Login() {
           pattern: { value: /[A-Za-z]/, message: "Text only" },
         }}
       />
-      <Button htmlType="submit">Submit</Button>
+      <Button htmlType="submit" color="#eee" padding="2rem">
+        Submit
+      </Button>
     </form>
   );
 }

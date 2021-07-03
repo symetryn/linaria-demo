@@ -2,8 +2,6 @@ import * as Sentry from "@sentry/node";
 import { AppProps } from "next/app";
 import { analytics } from "@project/shared";
 import React, { useEffect } from "react";
-import "../utils/css-imports";
-import "antd/dist/antd.css";
 
 import { useRouter } from "next/router";
 import { Layout } from "antd";

@@ -3,8 +3,6 @@ import { AppProps } from "next/app";
 import { analytics } from "@project/shared";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import "antd/dist/antd.css";
-import "../utils/css-imports";
 
 if (process.env.NEXT_PUBLIC_SENTRY_DSN) {
   Sentry.init({

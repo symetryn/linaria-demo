@@ -1,5 +1,6 @@
 import { Control, Controller, RegisterOptions } from "react-hook-form";
-import { Input } from "antd";
+import { Input as AntInput, Button as AntButton } from "antd";
+import { styled } from "linaria/react";
 import React from "react";
 
 interface InputProps {
@@ -9,6 +10,14 @@ interface InputProps {
   defaultValue?: string;
   rules?: RegisterOptions;
 }
+
+const Input = styled(AntInput)`
+  background-color: green;
+`;
+
+const Button = styled(AntButton)`
+  background-color: green;
+`;
 
 export const InputComponent: React.FC<InputProps> = ({
   name,
@@ -30,6 +39,7 @@ export const InputComponent: React.FC<InputProps> = ({
           <div>
             <Input type={type} {...field}></Input>
             {error?.message}
+            <Button>test</Button>
           </div>
         );
       }}
