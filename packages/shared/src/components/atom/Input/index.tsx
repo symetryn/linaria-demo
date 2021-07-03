@@ -1,5 +1,5 @@
 import { Control, Controller, RegisterOptions } from "react-hook-form";
-import { Input as AntInput, Button as AntButton } from "antd";
+import { Input as AntInput } from "antd";
 import { styled } from "linaria/react";
 import React from "react";
 
@@ -12,11 +12,16 @@ interface InputProps {
 }
 
 const Input = styled(AntInput)`
-  background-color: green;
+  display: block;
+  padding: 0.2rem;
 `;
-
-const Button = styled(AntButton)`
-  background-color: green;
+const Error = styled.div`
+  display: block;
+  padding: 0.2rem;
+`;
+const Wrapper = styled.div`
+  margin-bottom: 0.5rem;
+  width: 100%;
 `;
 
 export const InputComponent: React.FC<InputProps> = ({
@@ -36,11 +41,10 @@ export const InputComponent: React.FC<InputProps> = ({
         // recommended way to extract field state https://react-hook-form.com/api/useform/formstate
         const { error } = fieldState;
         return (
-          <div>
+          <Wrapper>
             <Input type={type} {...field}></Input>
-            {error?.message}
-            <Button>test</Button>
-          </div>
+            <Error>{error?.message}</Error>
+          </Wrapper>
         );
       }}
     />

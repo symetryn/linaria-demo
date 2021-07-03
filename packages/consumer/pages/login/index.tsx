@@ -1,12 +1,20 @@
 import { useForm } from "react-hook-form";
 import { styled } from "linaria/react";
-import { Button as AntButton } from "antd";
 
 import { Input, Button } from "@project/shared";
-const Comp = styled(AntButton)`
-  height: 100px;
-  width: 100px;
-  background-color: black;
+const FormWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const Form = styled.form`
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default function Login() {
@@ -16,27 +24,29 @@ export default function Login() {
     console.log(data);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Comp>test</Comp>
-      <Input
-        control={control}
-        name="username"
-        rules={{ required: "required message" }}
-      />
-      <Input
-        control={control}
-        name="password"
-        type="password"
-        rules={{
-          required: "required message",
-          // explict value and message
-          minLength: { value: 5, message: "Minimum 5" },
-          pattern: { value: /[A-Za-z]/, message: "Text only" },
-        }}
-      />
-      <Button htmlType="submit" color="#eee" padding="2rem">
-        Submit
-      </Button>
-    </form>
+    <FormWrapper>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <h2>Login</h2>
+        <Input
+          control={control}
+          name="username"
+          rules={{ required: "required message" }}
+        />
+        <Input
+          control={control}
+          name="password"
+          type="password"
+          rules={{
+            required: "required message",
+            // explict value and message
+            minLength: { value: 5, message: "Minimum 5" },
+            pattern: { value: /[A-Za-z]/, message: "Text only" },
+          }}
+        />
+        <Button htmlType="submit" padding="0.1rem 0.8rem" color="#fff">
+          Submit
+        </Button>
+      </Form>
+    </FormWrapper>
   );
 }

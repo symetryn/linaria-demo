@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { styled } from "linaria/react";
 import { theme } from "../../../theme";
-import { Button, Input as IInput } from "antd";
+import { Button } from "antd";
 
 type ButtonType = "primary" | "link";
 export interface ButtonProps {
@@ -47,9 +47,28 @@ const Wrapper = styled.div`
   }
 `;
 const StyledButton = styled(Button)`
+  ${({ typography }: ButtonProps) => {
+    if (typography) {
+      return typography;
+    }
+  }}
+  &[disabled] {
+    background-color: ${theme.secondaryLight};
+    border: none;
+    box-shadow: none !important;
+    color: ${theme.base};
+  }
+  border-color: ${theme.blue2};
+
+  border-radius: ${({ borderradius, noradius }: ButtonProps) => {
+    return noradius ? "none" : borderradius ? borderradius : "100px";
+  }};
+  margin: ${({ margin }: ButtonProps) => {
+    return margin && margin;
+  }};
   padding: ${({ type, padding }: ButtonProps) => {
     if (padding) {
-      return padding;
+      return `${padding}`;
     }
     switch (type) {
       case "primary":
@@ -59,12 +78,28 @@ const StyledButton = styled(Button)`
     }
   }};
 
-  color: ${({ color }: ButtonProps) => {
-    return color ? color : theme.base;
+  background: ${({ background }: ButtonProps) => {
+    return background ? background : theme.blue2;
   }};
-`;
-const AInput = styled(IInput)`
-  background-color: red;
+
+  color: ${({ color }: ButtonProps) => {
+    return color ? `${color}` : theme.base;
+  }};
+  font-size: ${({ fontSize }: ButtonProps) => {
+    return fontSize && fontSize;
+  }};
+  font-weight: ${({ bold }: ButtonProps) => {
+    return bold && "bold";
+  }};
+  min-width: ${({ minwidth }: ButtonProps) => {
+    return minwidth && `${minwidth}px`;
+  }};
+  width: ${({ width }: ButtonProps) => {
+    return width && `${width}`;
+  }};
+  min-height: ${({ minheight }: ButtonProps) => {
+    return minheight && `${minheight}px`;
+  }};
 `;
 
 export const ButtonComponent: React.FC<ButtonProps> = ({
@@ -76,7 +111,6 @@ export const ButtonComponent: React.FC<ButtonProps> = ({
 }) => {
   return (
     <Wrapper {...rest}>
-      <AInput />
       <StyledButton
         onClick={onClick}
         htmlType={htmlType}

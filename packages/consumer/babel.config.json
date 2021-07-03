@@ -2,12 +2,7 @@
   "presets": ["next/babel", "linaria/babel"],
   "plugins": [
     "inline-react-svg",
-    [
-      "styled-components",
-      {
-        "ssr": true
-      }
-    ],
+
     ["import", { "libraryName": "antd", "style": true }]
   ]
 }
