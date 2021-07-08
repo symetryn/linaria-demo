@@ -1,3 +1,4 @@
+// packages/consumer/next.config.js and packages/owner/next.config.js
 const withTM = require("next-transpile-modules")(["@project/shared"]);
 const withImages = require("next-images");
 const nextSourceMaps = require("@zeit/next-source-maps");
@@ -13,7 +14,7 @@ module.exports = withImages(
             if (!isServer) {
               config.resolve.alias["@sentry/node"] = "@sentry/browser";
             }
-
+            // work around to tell linaria to compile shared package
             config.module.rules.push({
               test: /\.([jt]sx?|mjs)$/,
               use: [
