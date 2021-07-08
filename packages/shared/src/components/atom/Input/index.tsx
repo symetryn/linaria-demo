@@ -19,7 +19,8 @@ export const InputComponent: React.FC<InputProps> = ({
 }) => {
   return (
     <Controller
-      name={name}
+      // convert to constant literal instead of string
+      name={`${name}` as const}
       defaultValue={defaultValue}
       control={control}
       rules={rules}
