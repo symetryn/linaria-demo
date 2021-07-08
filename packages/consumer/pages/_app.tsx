@@ -1,6 +1,6 @@
 import * as Sentry from "@sentry/node";
 import { AppProps } from "next/app";
-import { analytics } from "@project/shared";
+// import { analytics } from "@project/shared";
 import React, { useEffect } from "react";
 
 import { useRouter } from "next/router";
@@ -19,23 +19,23 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
-      const logEvent = (url: string) => {
-        analytics().setCurrentScreen(url);
-        analytics().logEvent("screen_view", {
-          screen_name: url,
-          app_name: "Skeleton-Consumer",
-        });
-      };
+      // const logEvent = (url: string) => {
+      //   analytics().setCurrentScreen(url);
+      //   analytics().logEvent("screen_view", {
+      //     screen_name: url,
+      //     app_name: "Skeleton-Consumer",
+      //   });
+      // };
 
-      routers.events.on("routeChangeComplete", (url) => {
+      routers.events.on("routeChangeComplete", () => {
         window.scrollTo(0, 0);
-        logEvent(url);
+        // logEvent(url);
       });
 
-      logEvent(window.location.pathname);
-      return () => {
-        routers.events.off("routeChangeComplete", logEvent);
-      };
+      // logEvent(window.location.pathname);
+      // return () => {
+      //   routers.events.off("routeChangeComplete", logEvent);
+      // };
     }
   }, []);
   return (

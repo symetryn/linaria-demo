@@ -33,7 +33,7 @@ export const InputComponent: React.FC<InputProps> = ({
 }) => {
   return (
     <Controller
-      name={name}
+      name={`${name}` as const}
       defaultValue={defaultValue}
       control={control}
       rules={rules}
